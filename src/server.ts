@@ -1,4 +1,5 @@
 import { config } from 'dotenv'
+import cookieParser from 'cookie-parser'
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
@@ -33,6 +34,7 @@ database.once('connected', () => {
 
 app.set('Access-Control-Allow-Credentials', true)
 app.set('Access-Control-Allow-Origin', '*')
+app.use(cookieParser())
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(userAccountRouter)
