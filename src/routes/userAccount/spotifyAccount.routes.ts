@@ -40,6 +40,17 @@ userAccountRouter.post('/api/login', (req, res) => {
 	}
 })
 
+userAccountRouter.post('/api/logout', async (req, res) => {
+	try {
+		res.clearCookie('AuthToken', {
+			httpOnly: true,
+		})
+		res.status(200).send({ message: 'Logout!' })
+	} catch (error) {
+		res.status(500).json({ message: error.message })
+	}
+})
+
 userAccountRouter.get('/api/get-cookie', (req, res) => {
 	if (!req.cookies.AuthToken) {
 		try {
