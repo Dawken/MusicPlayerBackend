@@ -3,9 +3,23 @@ import SpotifyWebApi from 'spotify-web-api-node'
 
 const userAccountRouter = Router()
 
-userAccountRouter.post('/api/login', (req, res) => {
+userAccountRouter.post('/api/code', (req, res) => {
 	try {
 		const { code } = req.body
+		res.cookie('Code', code, {
+			httpOnly: true,
+			secure: true,
+			sameSite: 'none',
+		})
+		res.status(200).json({ message: 'Login succeed' })
+	}  catch (error) {
+		res.status(500).json({ message: error.message })
+	}
+})
+
+userAccountRouter.post('/api/login', (req, res) => {
+	try {
+		const code  = req.cookies.Code
 		if (!code) {
 			res.status(400)
 		}
