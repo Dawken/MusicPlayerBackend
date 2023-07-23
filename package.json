@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.ts",
-    "prepare": "husky install"
+    "dev": "nodemon src/server.ts"
   },
   "author": "",
   "license": "ISC",
@@ -36,7 +35,6 @@
     "express": "4.18.2",
     "jsonwebtoken": "9.0.0",
     "lyrics-finder": "21.7.0",
-    "mongoose": "5.13.15",
     "spotify-web-api-node": "5.0.2"
   }
 }
