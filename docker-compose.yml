@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: musicplayerbackend
+    image: musicplayerbackend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./src:/app/src
+    env_file: docker.env
+    environment:
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - TOKEN_SECRET=${TOKEN_SECRET}
+      - ORIGIN=${ORIGIN}
+    stdin_open: true
+    ports:
+      - '5000:5000'
