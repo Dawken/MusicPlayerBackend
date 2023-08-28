@@ -15,13 +15,12 @@ const corsOptions = {
 	credentials: true,
 }
 
-app.set('Access-Control-Allow-Credentials', true)
-app.set('Access-Control-Allow-Origin', '*')
-app.use(cookieParser())
 app.use(cors(corsOptions))
+app.use(cookieParser())
 app.use(express.json())
 app.use(userAccountRouter)
 app.use(userRoutes)
+
 
 const PORT = process.env.PORT || 8080
 
