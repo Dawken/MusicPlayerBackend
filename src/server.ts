@@ -15,6 +15,8 @@ const corsOptions = {
 	credentials: true,
 }
 
+app.set('Access-Control-Allow-Credentials', true)
+app.set('Access-Control-Allow-Origin', '*')
 app.use(cors(corsOptions))
 app.use(cookieParser())
 app.use(express.json())
