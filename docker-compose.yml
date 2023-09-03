@@ -14,7 +14,6 @@ services:
     environment:
       - CLIENT_ID=${CLIENT_ID}
       - CLIENT_SECRET=${CLIENT_SECRET}
-      - TOKEN_SECRET=${TOKEN_SECRET}
       - ORIGIN=${ORIGIN}
     stdin_open: true
     ports:
